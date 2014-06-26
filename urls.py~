@@ -1,0 +1,21 @@
+# -*- coding: utf-8 -*-
+from django.conf.urls import patterns, include, url
+import autocomplete_light
+
+autocomplete_light.autodiscover()
+
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('',
+    # Examples:
+    # url(r'^$', 'Mantenimiento.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^$','eventos.views.login'),
+    url(r'^(\d{4})/$','eventos.views.main_view'),
+    url(r'^add_event/', 'eventos.views.add_event', name='add_event'),
+    url(r'^add_mant/', 'eventos.views.add_mant', name='add_mant'),
+    url(r'^autocomplete/', include('autocomplete_light.urls')),
+)

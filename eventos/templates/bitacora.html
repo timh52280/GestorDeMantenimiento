@@ -1,0 +1,22 @@
+{% load staticfiles %}
+{% load extra_tags %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static "eventos/style.css" %}">
+</head>
+<body>
+{% if not user.is_anonymous %}
+<table>
+<tr><td><strong>División Arroz</strong></td></tr>
+<tr><td>Orden de Trabajo</td><td>No. Orden: {{onumber}}</td></tr>
+<tr><td>Fecha/Hora: {{fecha_hora}}</td></tr>
+<tr><td>Mantenimiento: Preventivo</td></tr>
+<tr><td>Solicito: {{solicitante}}</td><td>Área: Línea de Envasado</td></tr>
+<tr><td>Instalaciones Generales:</td></tr>
+<tr><td>Trabajo a realizar: {{e_nombre}}</td></tr>
+<tr><td>Personal Asignado: [personal] </td></tr>
+{% else %}
+<p>No tiene permisos para acceder a esta sección.</p>
+{% endif %}
+</body>
+</html>

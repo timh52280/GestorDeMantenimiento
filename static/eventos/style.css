@@ -1,0 +1,24 @@
+html,body{
+padding: 0px;
+margin: 5px;
+height:100%;
+}
+
+img.write{
+width:16px;
+height:16px;
+}
+
+tr{
+text-align:left;
+}
+
+table.inner{
+width:100%;
+height:100%;
+}
+
+table.outter{
+width:100%;
+height:50%;
+}

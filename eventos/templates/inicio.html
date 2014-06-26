@@ -1,0 +1,50 @@
+{% load staticfiles %}
+{% load extra_tags %}
+{% load django_tables2 %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static "eventos/style.css" %}">
+</head>
+<body>
+{% if username %}
+{% set counter %}
+<h1>Plan de Mantenimiento Año {{anyo_actual}}</h1>
+    {% for trimestre in meses %}
+    <table width="100%" class="outter">
+    <thead>
+    <tr>
+        {% for k,v in trimestre.items %}
+        <td width="20%" align="center" id="mes"><strong>{{v}} - {{anyo_actual}}</strong></td>
+        {% endfor %}
+    </tr>
+    </thead>
+    <tr>
+        {% for k,v in trimestre.items %}
+        <td>
+        <table width="100%" class="inner">
+        <thead>
+        <tr>
+        <th>Nombre</th>
+        <th>Opciones</th>
+        </tr>
+        </thead>
+            {% for evento in eventos %}
+            {% get_list_index categorias evento.categoria %}
+            {% month_belong_event evento.mes_inicio evento.anyo_inicio k anyo_actual evento.frecuencia_meses %}
+            {% if belong_to_month %}
+            {% has_maintenance mantenimientos evento.evento_id k anyo_actual %}
+            <tr><td>{{counter}}</td><td id="{{cat}}">{{evento.nombre}}</td><td><img src="{% static "eventos/write.png" %}" class="write" title="Escribir bitácora de mantenimiento"></img></td></tr>
+            {% endif %}
+            {% endfor %}
+        </table>
+        </td>
+        {% endfor %}
+    </tr>
+    </table>
+    <br>
+    {% endfor %}
+{% else %}
+<h3>No ha iniciado sesión, porfavor hagalo y vuelva a intentarlo.</h3>
+{% endif %}
+</body>
+</html>

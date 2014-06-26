@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Solicitud de acceso{% endblock %}
+
+{% block content %}
+<div class="container">
+<h3>Acceso:</h3>
+<form action="/identificar/" method="post"> {% csrf_token %}
+<p><label for="username">Usuario:</label> <input type="username" name="username" /></p>
+<p><label for="password">Contraseña:</label> <input type="password" name="password" /></p>
+<p class="submit"><input type="submit" value="Acceder" /></p>
+</form>
+</div> 
+{% endblock %}

@@ -1,0 +1,14 @@
+{% load staticfiles %}
+{% load extra_tags %}
+<html>
+<head>
+</head>
+<body>
+<h3>Bienvenido</h3>
+<p><strong>Nombre de usuario:</strong> {{user.username}}</p>
+<p><strong>Grupo:</strong> {{group.name}}</p>
+<p><strong>Nombre:</strong> {{user.first_name}}</p>
+<p><strong>Apellidos:</strong> {{user.last_name}}</p>
+<p><a href="/salir/">Cerrar sesión</a></p>
+</body>
+</html>

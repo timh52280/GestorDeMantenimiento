@@ -1,0 +1,10 @@
+<html>
+<head></head>
+<body>
+<h3>Modificar orden de mantenimiento</h3>
+<form action="/crear_orden/" method="post">{% csrf_token %}
+{{form.as_ul}}
+<input type="submit" value="Guardar">
+</form>
+</body>
+</html>

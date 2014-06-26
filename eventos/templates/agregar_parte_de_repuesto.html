@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<html>
+<head>
+<link rel="stylesheet" href="{% static "eventos/css/forms.css" %}">
+<script type="text/javascript" src="{% static "eventos/js/jquery.min.js" %}"></script>
+<script type="text/javascript">
+    var frm = $('#myform');
+    frm.submit(function (ev) {
+        $.ajax({
+            type: frm.attr('method'),
+            url: frm.attr('action'),
+            data: frm.serialize(),
+            success: function (data) {
+                alert('ok');
+            }
+        });
+
+        ev.preventDefault();
+    });
+</script>
+<title>Agregar nueva parte de repuesto</title>
+</head>
+<body>
+<div class="container">
+<form action="/agregar_repuesto/" method="post" id="myform">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Agregar parte de repuesto"/>
+</form>
+</div>
+</body>
+</html>

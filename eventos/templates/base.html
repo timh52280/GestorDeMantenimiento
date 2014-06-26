@@ -1,0 +1,12 @@
+{% load staticfiles %}
+{% load extra_tags %}
+<html>
+    <head>
+        <title>{% block head_title %}Sistema de mantenimiento{% endblock %}</title>
+        <link rel="stylesheet" href="{% static "eventos/css/base.css" %}">    
+        </head>
+    <body>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
