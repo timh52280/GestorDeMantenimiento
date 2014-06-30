@@ -17,8 +17,7 @@ def handlePopAdd(request, addForm, field):
             except forms.ValidationError:
                 newObject = None
             if newObject:
-               return HttpResponse('<script type="text/javascript">opener.dismissAddAnotherPopup(window, "%s", "%s");</script>' % \
-                    (escape(newObject._get_pk_val()), escape(newObject)))
+                return HttpResponse('<!DOCTYPE html><html><head><title></title></head><body><script type="text/javascript">opener.dismissAddAnotherPopup(window, "%s", "%s");</script></body></html>' % (escape(newObject._get_pk_val()), escape(newObject)))
     else:
         form = addForm()
     
@@ -31,7 +30,7 @@ def handlePopAdd(request, addForm, field):
     return render_to_response("popadd.html", args)
 
 def Nuevo_Repuesto_Ocupado(request):
-    return handlePopAdd(request, ParteDeRepuesto_Form, 'm_PartesDeRepuestoOcupadas')
+    return handlePopAdd(request, ParteDeRepuesto_Form, 'm_ParteDeRepuestoOcupada')
 
 def Nuevo_Material_Ocupado(request):
     return handlePopAdd(request, Material_Ocupado_Form, 'm_MaterialesOcupados')

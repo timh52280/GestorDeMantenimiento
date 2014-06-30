@@ -2,11 +2,11 @@
 {% load extra_tags %}
     <html>
         <head>
-            <title>Add {{ field }}</title>
-            <script type="text/javascript" src="/media/js/admin/RelatedObjectLookups.js"></script>
+            <title>Agregar nuevo elemento para campo {{ field }}</title>
+            <script type="text/javascript" src="/static/eventos/js/admin/RelatedObjectLookups.js"></script>
         </head>
         <body>
-            <h1>Add {{ field }}</h1>
+            <h3>Agregar nuevo elemento para campo {{ field }}</h3>
             <form method="POST" action="/add/{{ field }}">{% csrf_token %}
                 <table>
                     {{ form }}

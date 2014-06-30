@@ -47,23 +47,42 @@ class SupervisorLookup(LookupChannel):
         
 class ParteDeRepuestoLookup(LookupChannel):
 
-    model = ParteDeRepuesto
+    model = ParteDeRepuestoOcupada
 
     def get_query(self,q,request):
-        return ParteDeRepuesto.objects.filter(m_Articulo__icontains=q)
+        return ParteDeRepuestoOcupada.objects.filter(m_Parte__m_Articulo__icontains=q)
         
     def get_result(self,obj):
         u""" result is the simple text that is the completion of what the person typed """
-        return obj.m_Articulo
+        return u"A"
         
     def format_match(self, obj):
         """ (HTML) formatted item for display in the dropdown """
-        return u"<div><i>%s</i></div>" % (escape(obj.m_Articulo))
+        return u"<div><i>B</i></div>"
         # return self.format_item_display(obj)
 
     def format_item_display(self, obj):
         """ (HTML) formatted item for displaying item in the selected deck area """
-        return u"<div><i>%s</i></div>" % (escape(obj.m_Articulo))
+        return u"<div><i>%s</i></div>" % (escape(obj.m_Parte.m_Articulo))
 
+class MaterialOcupadoLookup(LookupChannel):
+
+    model = MaterialOcupado
+
+    def get_query(self,q,request):
+        return MaterialOcupado.objects.filter(m_Material__m_Articulo__icontains=q)
+        
+    def get_result(self,obj):
+        u""" result is the simple text that is the completion of what the person typed """
+        return u"A"
+        
+    def format_match(self, obj):
+        """ (HTML) formatted item for display in the dropdown """
+        return u"<div><i>B</i></div>"
+        # return self.format_item_display(obj)
+
+    def format_item_display(self, obj):
+        """ (HTML) formatted item for displaying item in the selected deck area """
+        return u"<div>%s</div>" % (escape(obj.m_Material.m_Articulo))
 
 

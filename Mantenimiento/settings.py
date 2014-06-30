@@ -113,4 +113,5 @@ AJAX_LOOKUP_CHANNELS = {
     'supervisor'  : ('eventos.lookups', 'SupervisorLookup'),
     'personal'  : ('eventos.lookups', 'PersonalLookup'),
     'partederepuesto'  : ('eventos.lookups', 'ParteDeRepuestoLookup'),
+    'materialocupado'   : ('eventos.lookups','MaterialOcupadoLookup')
 }
