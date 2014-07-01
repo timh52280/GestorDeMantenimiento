@@ -1,0 +1,26 @@
+th{
+text-align: left;
+}
+
+p{
+    font-size: 14pt;
+    margin-left: 70px;
+}
+
+.bold {
+font-weight: bold;
+}
+
+select{
+width: 400px;
+}
+
+textarea {
+width: 400px;
+}
+
+ input[type="text"] {
+    width: 400px;
+    display: block;
+    margin-bottom: 10px;
+}

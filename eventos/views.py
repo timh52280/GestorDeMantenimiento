@@ -7,6 +7,14 @@ from .models import Orden_Mantenimiento
 from django.contrib import messages
 from django.utils.html import escape
 
+def generar_orden(request,id):
+    instance = Orden_Mantenimiento.objects.get(pk=id)
+    args = {}
+    args.update(csrf(request))
+    
+    args['instance'] = instance
+    return render_to_response("generar_orden.html", args)
+
 def handlePopAdd(request, addForm, field):
 
     if request.method == "POST":
@@ -85,9 +93,9 @@ def crear_orden(request):
     if request.POST:
         form = Orden_Mantenimiento_Form(request.POST)
         if form.is_valid():
-            form.save()
+            data = form.save()
  
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect("/generar_orden/%s/" % (data.m_ID))
     else:
         form = Orden_Mantenimiento_Form()
         for key in request.GET:
@@ -170,6 +178,4 @@ def modificar_orden(request,id=None):
     args['form'] = form
  
     return render_to_response('modificar_orden_mantenimiento.html', args)
-    
-def generar_mantenimientos(year):
-    return    
+      

@@ -1,40 +1,50 @@
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="/static/tables.css" type="text/css" media="all" rel="stylesheet" />
 <link href="/static/style.css" type="text/css" media="all" rel="stylesheet" />
 </head>
 <body>
+<img src="/static/mosusa.gif"></img>
+<p>División arroz</p>
 <h2>Orden de mantenimiento</h2>
 <table>
-<tr><td>Num.de orden: </td><td>{{Numero}}</td></tr>
+<tr><td class="bold">Número de orden: </td><td>{{instance.pk}}</td></tr>
 <tr>
-<td>Tipo de trabajo:</td><td>{{Tipo de trabajo}}</td>
+<td class="bold">Fecha/Hora de creación:</td><td>{{instance.m_FechaHoraCreacion}}</td>
 </tr>
 <tr>
-<td>Tipo de mantenimiento:</td><td>{{Tipo de mantenimiento}}</td>
+<td class="bold">Fecha/Hora de completado:</td><td>{% if not instance.m_FechaHoraCompletado %} Sin completar {% else %} {{instance.m_FechaHoraCompletado}} {% endif %}</td>
 </tr>
 <tr>
-<td>Equipo/Maquinaria:</td><td>{{Equipo o maquinaria}}</td>
+<td class="bold">Tipo de trabajo:</td><td>{{instance.m_TipoTrabajo}}</td>
 </tr>
 <tr>
-<td>Prioridad:</td><td>{{Prioridad del trabajo}}</td>
+<td class="bold">Tipo de mantenimiento:</td><td>{{instance.m_TipoMantenimiento}}</td>
 </tr>
 <tr>
-<td>Descripcion:</td><td>{{Descripcion}}</td>
+<td class="bold">Equipo/Maquinaria:</td><td>{{instance.m_Equipo}}</td>
 </tr>
 <tr>
-<td>Partes de repuesto a ocupar:</td><td>{{Partes de repuesto}}</td>
+<td class="bold">Prioridad:</td><td>{{instance.m_Prioridad}}</td>
 </tr>
 <tr>
-<td>Materiales a ocupar:</td><td>{{Materiales a ocupar}}</td>
+<td class="bold">Descripción del trabajo:</td><td>{{instance.m_Descripcion}}</td>
 </tr>
 <tr>
-<td>Codigos de causa:</td><td>{{Codigos de causa}}</td>
+<td class="bold">Partes de repuesto a ocupar:</td><td>{% for repuesto_ocupado in instance.m_PartesDeRepuestoOcupadas.all %} {{repuesto_ocupado.m_Parte.m_Articulo}} <br> {% empty %} Ninguna/o {% endfor %}</td>
 </tr>
 <tr>
-<td>Supervisor que emite la orden:</td><td>{{Supervisor}}</td>
+<td class="bold">Materiales a ocupar:</td><td>{% for material_ocupado in instance.m_MaterialesOcupados.all %} {{material_ocupado.m_Material.m_Articulo}} <br> {% empty %} Ninguna/o {% endfor %} </td>
 </tr>
 <tr>
-<td>Personal asignado para el trabajo:</td><td>{{Personal}}</td>
+<td class="bold">Códigos de causa:</td><td>{% for codigo_causa in instance.m_CodigosdeCausa.all %}{{codigo_causa.m_Causa}} <br> {% empty %} Ninguna/o {% endfor %}</td>
+</tr>
+<tr>
+<td class="bold">Supervisor que emite la orden:</td><td>{{instance.m_Supervisor}}</td>
+</tr>
+<tr>
+<td class="bold">Personal asignado para el trabajo:</td><td>{% for personal in instance.m_Personal.all %}{{personal.username}}<br> {% empty %} Ninguna/o {% endfor %}</td>
 </tr>
 </table>
 </body>

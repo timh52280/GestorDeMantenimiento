@@ -25,7 +25,7 @@ urlpatterns = patterns('',
     url(r'^modificar_orden/(?P<id>\d+)/$','eventos.views.modificar_orden', name='modificar_orden'),
     url(r'^add/m_MaterialesOcupados/?$', 'eventos.views.Nuevo_Material_Ocupado',name='Nuevo_Material_Ocupado'),
     url(r'^add/m_ParteDeRepuestoOcupada/?$', 'eventos.views.Nuevo_Repuesto_Ocupado',name='Nuevo_Material_Ocupado'),
-    url(r'^generar_orden/$','eventos.views.generar_orden', name='generar_orden'),
+    url(r'^generar_orden/(?P<id>\d+)/$','eventos.views.generar_orden', name='generar_orden'),
 
 
 )

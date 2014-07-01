@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+td {
+    padding: 5px;
+}
+
+p{
+    margin-left: 220px;
+    font-size: 14pt;
+}
+
+img{
+margin-left: 150px;
+}
+
+.bold {
+font-weight: bold;
+}
+
+h2 {
+margin-left: 120px;
+}
