@@ -84,5 +84,3 @@ class MaterialOcupadoLookup(LookupChannel):
     def format_item_display(self, obj):
         """ (HTML) formatted item for displaying item in the selected deck area """
         return u"<div>%s</div>" % (escape(obj.m_Material.m_Articulo))
-
-
