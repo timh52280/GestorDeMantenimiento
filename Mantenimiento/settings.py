@@ -85,7 +85,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Mexico_City'
 
 USE_I18N = True
 
@@ -115,3 +115,5 @@ AJAX_LOOKUP_CHANNELS = {
     'partederepuesto'  : ('eventos.lookups', 'ParteDeRepuestoLookup'),
     'materialocupado'   : ('eventos.lookups','MaterialOcupadoLookup')
 }
+
+LOGIN_URL = '/accesar/'

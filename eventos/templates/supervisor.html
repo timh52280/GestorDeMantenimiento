@@ -1,14 +1,27 @@
 {% load staticfiles %}
 {% load extra_tags %}
-<html>
-<head>
-</head>
-<body>
-<h3>Bienvenido</h3>
-<p><strong>Nombre de usuario:</strong> {{user.username}}</p>
-<p><strong>Grupo:</strong> {{group.name}}</p>
-<p><strong>Nombre:</strong> {{user.first_name}}</p>
-<p><strong>Apellidos:</strong> {{user.last_name}}</p>
-<p><a href="/salir/">Cerrar sesión</a></p>
+    <html>
+        <head>
+            <title>Gestor de Mantenimiento</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <link href="/static/tables.css" type="text/css" media="all" rel="stylesheet" />
+            <link href="/static/style.css" type="text/css" media="all" rel="stylesheet" />
+            <script type="text/javascript" src="/static/eventos/js/admin/RelatedObjectLookups.js"></script>
+        </head>
+        <body>
+<img src="/static/mosusa.gif"></img>
+<p>División arroz</p>
+<h2>Gestor de Mantenimiento</h2>
+<div id="navigation-bar">
+<ul>
+<li>{% if request.user.is_authenticated %}<a href="/salir/">Cerrar sesión: {{request.user}}</a>{% else %}<a href="/accesar/">Iniciar Sesión </a>{% endif %}</a></li>
+<li><a href="/accesar/">Ver ordenes de mant.</a></li>
+<li><a href="/crear_orden/">Crear orden de mantenimiento</a></li>
+<li><a href="/modificar_orden/">Modificar orden de mantenimiento</a></li>
+</ul>
+</div>
+<div id="content">
+</div>
 </body>
+</head>
 </html>

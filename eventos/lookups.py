@@ -30,7 +30,7 @@ class SupervisorLookup(LookupChannel):
     model = User
 
     def get_query(self,q,request):
-        return Group.objects.get(name="supervisores").user_set.filter(username__icontains=q)
+        return Group.objects.get(name="supervisores").user_set.filter(username__icontains=request.user.username)
         
     def get_result(self,obj):
         u""" result is the simple text that is the completion of what the person typed """

@@ -3,10 +3,16 @@
     <html>
         <head>
             <title>Agregar nuevo elemento para campo {{ field }}</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <link href="/static/tables.css" type="text/css" media="all" rel="stylesheet" />
+            <link href="/static/style.css" type="text/css" media="all" rel="stylesheet" />
             <script type="text/javascript" src="/static/eventos/js/admin/RelatedObjectLookups.js"></script>
         </head>
         <body>
-            <h3>Agregar nuevo elemento para campo {{ field }}</h3>
+            <img src="/static/mosusa.gif"></img>
+            <p>División arroz</p>
+            <h2>Orden de mantenimiento</h2>
+            <h3>Agregar nuevo elemento de {{ field }}</h3>
             <form method="POST" action="/add/{{ field }}">{% csrf_token %}
                 <table>
                     {{ form }}

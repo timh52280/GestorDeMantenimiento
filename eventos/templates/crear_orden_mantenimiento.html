@@ -3,10 +3,9 @@
 <html>
     <head>
         <title>Sistema de Mantenimiento</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="/static/ajax_select/css/ajax_select.css" type="text/css" media="all" rel="stylesheet" />
         <link href="/static/text.css" type="text/css" media="all" rel="stylesheet" />
         <link href="/static/style.css" type="text/css" media="all" rel="stylesheet" />
-        <link href="/static/ajax_select/css/ajax_select.css" type="text/css" media="all" rel="stylesheet" />
         <link rel="stylesheet" href="/static/jqueryui/jquery-ui.min.css">
 
         <!-- Custom styles for this template -->
@@ -102,18 +101,18 @@
 </tr>
 </table>
 
-
 <table>
 <th>Mantenimiento programado:</th>
 <tr>
-<td>{{form.m_Programable}}</td><td><p>Active la casilla si desea que esta orden sea parte del plan de mantenimiento preventivo.</p></td>
-<td>{{form.m_Programable.errors|striptags}}</td>
+<td>{{form.m_Programable}}</td><td>{{form.m_Programable.errors|striptags}}</td>
 </tr>
 </table>
 
 
+
+
 <table>
-<tr><td><input type="submit" value="submit"></input></td></tr>
+<tr><td><input type="submit" value="Generar orden de mantenimiento."></input></td></tr>
 </table>
 
 </form>

@@ -1,36 +1,26 @@
-{% extends 'base.html' %}
-{% block content %}
-<h3>Plan de mantenimiento</h3           >
+{% load staticfiles %}
+{% load extra_tags %}
+    <html>
+        <head>
+            <title>Gestor de Mantenimiento</title>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+            <link href="/static/tables.css" type="text/css" media="all" rel="stylesheet" />
+            <link href="/static/style.css" type="text/css" media="all" rel="stylesheet" />
+            <script type="text/javascript" src="/static/eventos/js/admin/RelatedObjectLookups.js"></script>
+        </head>
+        <body>
+<img src="/static/mosusa.gif"></img>
+<p>División arroz</p>
+<h2>Gestor de Mantenimiento</h2>
 <div id="navigation-bar">
 <ul>
-<li><a href="/accesar/">Iniciar sesión</a></li>
-<li><a href="/accesar/">Ver ordenes de mant.</a></li>
+<li>{% if request.user.is_authenticated %}<a href="/salir/">Cerrar sesión: {{request.user}}</a>{% else %}<a href="/accesar/">Iniciar Sesión </a>{% endif %}</a></li>
+<li><a href="/ver_ordenes/">Ver ordenes de mantenimiento</a></li>
 <li><a href="/accesar/">Buscar</a></li>
 </ul>
 </div>
 <div id="content">
-<table>
-<caption>Enero</caption>
-<tr>
-<th>Orden Mant.</th>
-<th>Nombre</th>
-<th>Categoría</th>
-<th>Frecuencia</th>
-<th>Verificado</th>
-<th>Validado</th>
-<th>Personal</th>
-<th>Opciones</th>
-</tr>
-<tr>
-<td>1</td>
-<td>Lubricación Cadena - Detector de metales</td>
-<td>LU</td>
-<td>12 meses</td>
-<td>Si</td>
-<td>No</td>
-<td>Antonio Velazquez</td>
-<td></td>
-</tr>
-</table>
 </div>
-{% endblock %}
+</body>
+</head>
+</html>

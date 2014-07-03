@@ -35,7 +35,7 @@ class Orden_Mantenimiento_Form(forms.ModelForm):
     m_CodigosdeCausa = forms.ModelMultipleChoiceField(widget=forms.SelectMultiple(), queryset=CodigoCausa.objects.all(),required=False,label='Códigos de causa que originaron el mantenimiento')     
     m_Supervisor = AutoCompleteSelectField('supervisor', required=False, help_text=None) 
     m_Personal = AutoCompleteSelectMultipleField('personal', required=False, help_text=None)   
-    m_Programable = forms.BooleanField(label="Active la casilla si esta orden puede ser agregada al programa de mantenimiento preventivo.")    
+    m_Programable = forms.BooleanField(label="Active la casilla si esta orden puede ser agregada al programa de mantenimiento preventivo.",initial=False,required=False)    
     def __init__(self,*args,**kwargs):
         super (Orden_Mantenimiento_Form,self ).__init__(*args,**kwargs)      
         

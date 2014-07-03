@@ -46,7 +46,7 @@ class CodigoCausa(models.Model):
     m_Causa = models.CharField(max_length=250)
     
     def __unicode__(self):
-        return u'%s - %s' % (self.m_ID,self.m_Causa)
+        return u'%s' % (self.m_Causa)
 
 class CodigoColor(models.Model):
     m_ID = models.AutoField(primary_key=True)
@@ -160,7 +160,7 @@ class Orden_Mantenimiento(models.Model):
     m_CostoTotal = models.FloatField(null=True, blank=True)
     m_Supervisor = models.ForeignKey(User,related_name = 'Supervisor')      
     m_Personal=models.ManyToManyField(User, related_name = 'Personal')
-    m_Programable = models.BooleanField(default=False)
+    m_Programable=models.BooleanField()
     
     def __unicode__(self):
         return u'Número de orden: ' + u'%d' % self.m_ID

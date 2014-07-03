@@ -1,0 +1,35 @@
+<html>        
+<head>
+<title>Ver ordenes de mantenimiento</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="/static/text.css" type="text/css" media="all" rel="stylesheet" />
+<link href="/static/tables.css" type="text/css" media="all" rel="stylesheet" />
+<link href="/static/style.css" type="text/css" media="all" rel="stylesheet" />
+<script type="text/javascript" src="/static/eventos/js/admin/RelatedObjectLookups.js"></script>
+</head>
+<body>
+<img src="/static/mosusa.gif"></img>
+<p>División arroz</p>
+<h2>Lista de Ordenes de Mantenimiento</h2>
+<table>
+ <tr>
+   <th># de orden</th>
+   <th>Tipo de trabajo</th>
+   <th>Tipo de mantenimiento</th>
+   <th>Equipo</th>
+   <th>Supervisor</th>
+   <th>Fecha de creación</th>
+ </tr>
+{% for element in instance %}
+<tr>
+<td><a href="/generar_orden/{{element.pk}}">Orden de mantenimiento #{{element.pk}}</td>
+<td>{{element.m_TipoTrabajo}}</td>
+<td>{{element.m_TipoMantenimiento}}</td>
+<td>{{element.m_Equipo}}</td>
+<td>{{element.m_Supervisor}}</td>
+<td>{{element.m_FechaHoraCreacion}}</td>
+</tr>
+{% endfor %}
+</table>
+</body>
+</html>
