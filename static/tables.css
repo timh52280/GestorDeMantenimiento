@@ -11,18 +11,16 @@ td {
 }
 
 p{
-    margin-left: 220px;
+    text-align: center;
     font-size: 14pt;
 }
 
-img{
-margin-left: 150px;
+img.centered{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .bold {
 font-weight: bold;
-}
-
-h2 {
-margin-left: 120px;
 }

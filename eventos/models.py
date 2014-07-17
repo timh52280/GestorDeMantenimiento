@@ -165,23 +165,25 @@ class Orden_Mantenimiento(models.Model):
     def __unicode__(self):
         return u'Número de orden: ' + u'%d' % self.m_ID
         
-class Mantenimiento_Verificado(models.Model):
-    m_ID = models.AutoField(primary_key=True)
-    m_MantenimientoProgramado = models.ForeignKey(Mantenimiento_Programado)
-    m_Verificado = models.BooleanField()
-    m_VerificadoPor = models.ForeignKey(User)
-    
-    def __unicode__(self):
-        return self.m_MantenimientoProgramado.m_EventoMantenimiento.m_Nombre
-        
-class Mantenimiento_Validado(models.Model):
-     m_ID = models.AutoField(primary_key=True)
-     m_MantenimientoProgramado = models.ForeignKey(Mantenimiento_Programado)
-     m_Validado = models.BooleanField()
-     m_ValidadoPor = models.ForeignKey(User)
-     
-     def __unicode__(self):
-        return self.m_MantenimientoProgramado.m_EventoMantenimiento.m_Nombre
+#===============================================================================
+# class Mantenimiento_Verificado(models.Model):
+#     m_ID = models.AutoField(primary_key=True)
+#     m_MantenimientoProgramado = models.ForeignKey(Mantenimiento_Programado)
+#     m_Verificado = models.BooleanField()
+#     m_VerificadoPor = models.ForeignKey(User)
+#     
+#     def __unicode__(self):
+#         return self.m_MantenimientoProgramado.m_EventoMantenimiento.m_Nombre
+#         
+# class Mantenimiento_Validado(models.Model):
+#      m_ID = models.AutoField(primary_key=True)
+#      m_MantenimientoProgramado = models.ForeignKey(Mantenimiento_Programado)
+#      m_Validado = models.BooleanField()
+#      m_ValidadoPor = models.ForeignKey(User)
+#      
+#      def __unicode__(self):
+#         return self.m_MantenimientoProgramado.m_EventoMantenimiento.m_Nombre
+#===============================================================================
         
 class Bitacora_Mantenimiento(models.Model):
     m_ID = models.AutoField(primary_key=True)
@@ -195,4 +197,4 @@ class Bitacora_Mantenimiento(models.Model):
     m_HoraFin = models.TimeField()
     
     def __unicode__(self):
-        return self.m_OrdenMantenimiento.m_MantenimientoProgramado.m_EventoMantenimiento.m_Nombre
+        return u"%s" % (m_ID)

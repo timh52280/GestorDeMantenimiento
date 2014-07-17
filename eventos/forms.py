@@ -42,6 +42,22 @@ class Orden_Mantenimiento_Form(forms.ModelForm):
     class Meta:
         model = Orden_Mantenimiento
         
+class Bitacora_Mantenimiento_Form(forms.ModelForm):
+    m_OrdenMantenimiento = forms.ModelChoiceField(queryset=Orden_Mantenimiento.objects.none())
+    m_ProblemaParo = forms.CharField()
+    m_AccionRealizada = forms.CharField()
+    m_Observaciones = forms.CharField()
+    m_HoraInicio = forms.TimeInput()
+    m_Personal = forms.ModelChoiceField(queryset=User.objects.none())
+    m_HoraFin = forms.TimeInput()
+     
+    def __init__(self,orden_id,usuario,*args,**kwargs):
+        super (Bitacora_Mantenimiento_Form,self ).__init__(*args,**kwargs)     
+        self.fields['m_Personal'].queryset = User.objects.filter(username=usuario.username)
+        self.fields['m_OrdenMantenimiento'].queryset = Orden_Mantenimiento.objects.filter(pk=orden_id)
+    class Meta:
+        model = Bitacora_Mantenimiento
+        
 class ParteDeRepuesto_Form(forms.ModelForm):
     def __init__(self,*args,**kwargs):
         super (ParteDeRepuesto_Form,self ).__init__(*args,**kwargs)      
